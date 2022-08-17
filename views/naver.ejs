@@ -1,0 +1,21 @@
+<%- include("./include/header") %> 
+<main id="main">
+  <input type="text" id="movie" />
+  <button id="btnSearch">검색</button>
+</main>
+</body>
+<script>
+$("#btnSearch").on("click", function () {
+  //console.log($("#movie").val());
+  $.ajax({
+    url: "http://127.0.0.1:8099/naver",
+    data: {
+      movieTitle: $("#movie").val(),
+      aaa: 10,
+    },
+  }).done(function (response) {
+    console.log(response);
+  });
+});
+</script>
+<%- include("./include/footer") %>
